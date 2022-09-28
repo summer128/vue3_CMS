@@ -42,7 +42,12 @@
           <span>工作台</span>
         </div>
       </template>
-      <div></div>
+      <ul class="">
+        <li>
+          <img src="" alt="" />
+          <p>标题</p>
+        </li>
+      </ul>
     </el-card>
   </div>
 </template>
