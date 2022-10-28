@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import articalRoute from "@/router/artical";
+import dataRoute from "@/router/dataManage";
+import fileRoute from "@/router/fileManage";
+import sysRoute from "@/router/sys";
 
 const routes = [
   {
@@ -27,6 +30,8 @@ const routes = [
           path: "/workHome",
         },
       },
+      dataRoute,
+      fileRoute,
     ],
   },
 ];
@@ -38,15 +43,16 @@ const routes = [
 //   const tokenStr = window.sessionStorage.getItem('token')
 //   if (!tokenStr) return next('/login')
 //   next()
-// })
-const assginRouter = routes.concat(articalRoute);
+// }
+/*
+ * 有子级菜单的页面，可以和home同级
+ * 本身是一级菜单的要放到home的children中，要不跳转有问题
+ * */
+
+const assginRouter = routes.concat(articalRoute).concat(sysRoute);
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL), // hash模式：createWebHashHistory，history模式：createWebHistory
   routes: assginRouter,
 });
-
-// router.beforeEach((to, from, next) => {
-//   console.log(to, from, "路由信息");
-// });
 
 export default router;

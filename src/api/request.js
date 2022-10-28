@@ -3,7 +3,7 @@ import { ElMessage } from "element-plus";
 import {} from "vue";
 
 const instance = axios.create({
-  baseURL: "/api",
+  baseURL: "/api", // 区分生产/测试环境的域名前缀
 });
 
 // 添加请求拦截器

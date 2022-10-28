@@ -26,7 +26,9 @@
     </div>
     <div class="contend">
       <pageTag></pageTag>
-      <router-view></router-view>
+      <div class="mainContent">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
   <!--系统主题设置-->
@@ -140,9 +142,14 @@ header {
     }
   }
   .contend {
-    width: 100%;
+    width: calc(100% - 10px);
     margin: 6px 6px 6px 0;
     background: white;
+    padding-left: 10px;
+    .mainContent {
+      height: 93vh;
+      overflow-y: auto;
+    }
   }
 }
 </style>

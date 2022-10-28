@@ -13,14 +13,18 @@
     <!--    background-color="#545c64"-->
     <template v-for="item of datas.menuData">
       <!--只有一级菜单-->
-      <el-menu-item v-if="!item.children" :index="item.path" :key="item.id">
+      <el-menu-item
+        v-if="!item.children"
+        :index="item.path"
+        :key="item.id + ''"
+      >
         <el-icon>
           <component :is="item.icon"></component>
         </el-icon>
         <span>{{ item.title }}</span>
       </el-menu-item>
       <!--有子级菜单-->
-      <el-sub-menu v-else :index="item.path" :key="item.id">
+      <el-sub-menu v-else :index="item.path" :key="item.id + ''">
         <template #title>
           <el-icon>
             <component :is="item.icon"></component>

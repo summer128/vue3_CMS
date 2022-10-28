@@ -42,10 +42,28 @@
           <span>工作台</span>
         </div>
       </template>
-      <ul class="">
-        <li>
-          <img src="" alt="" />
-          <p>标题1111</p>
+      <ul class="linksContainer">
+        <li v-for="item of data.oftenLinks" :key="item.title">
+          <div class="links_title">
+            <img :src="item.img" alt="" />
+            <span>{{ item.title }}</span>
+          </div>
+          <p>{{ item.content }}</p>
+        </li>
+      </ul>
+    </el-card>
+    <el-card class="oftenLink">
+      <template #header>
+        <div class="card-header">
+          <span>消息</span>
+        </div>
+      </template>
+      <ul class="operateContainer">
+        <li v-for="item of data.oftenLinks" :key="item.title">
+          <div class="msg_img">
+            <img :src="item.img" alt="" />
+          </div>
+          <p>{{ item.content }}</p>
         </li>
       </ul>
     </el-card>
@@ -61,27 +79,39 @@ export default {
       oftenLinks: [
         {
           img: "https://www.javascriptc.com/vue3js/logo.png",
-          title: "Vue3中文文档 - vuejs",
+          title: "Vue3文档",
+          linkUrl: "https://www.javascriptc.com/vue3js/",
+          content: "渐进式 JavaScript 框架",
         },
         {
           img: "https://pinia.web3doc.top/logo.svg",
-          title: " Pinia 中文文档",
+          title: " Pinia文档",
+          linkUrl: "https://pinia.web3doc.top/",
+          content: "类似于 vuex 的组件库",
+        },
+        {
+          img: "https://element-plus.org/images/element-plus-logo.svg",
+          title: "element-plus",
+          linkUrl: "https://element-plus.org/zh-CN/",
+          content: "vue3 的element-plus UI 组件库",
+        },
+        {
+          img: "https://www.javascriptc.com/vue3js/logo.png",
+          title: "Vue3文档",
+          linkUrl: "https://www.javascriptc.com/vue3js/",
+          content: "渐进式 JavaScript 框架",
         },
         {
           img: "https://pinia.web3doc.top/logo.svg",
-          title: " Pinia 中文文档",
+          title: " Pinia文档",
+          linkUrl: "https://pinia.web3doc.top/",
+          content: "类似于 vuex 的组件库",
         },
         {
-          img: "https://pinia.web3doc.top/logo.svg",
-          title: " Pinia 中文文档",
-        },
-        {
-          img: "https://pinia.web3doc.top/logo.svg",
-          title: " Pinia 中文文档",
-        },
-        {
-          img: "https://pinia.web3doc.top/logo.svg",
-          title: " Pinia 中文文档",
+          img: "https://element-plus.org/images/element-plus-logo.svg",
+          title: "element-plus",
+          linkUrl: "https://element-plus.org/zh-CN/",
+          content: "vue3 的element-plus UI 组件库",
         },
       ],
     });
@@ -96,6 +126,9 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .el-card__header {
   padding: 10px !important;
+}
+::v-deep .el-card__body {
+  padding: 10px;
 }
 .content {
   .avatar {
@@ -126,8 +159,53 @@ export default {
 }
 .oftenProject {
   margin: 6px 0;
+  display: flex;
+  justify-content: space-between;
   .oftenLink {
+    width: 49%;
+  }
+}
+.linksContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  li {
     width: 50%;
+    padding: 16px 0;
+    text-align: center;
+    .links_title {
+      img {
+        width: 20px;
+        margin-right: 6px;
+      }
+    }
+  }
+  li:hover {
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px #00000026;
+  }
+}
+.operateContainer {
+  width: 100%;
+  li {
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #f2f6fc;
+    .msg_img {
+      img {
+        width: 26px;
+        margin-right: 6px;
+      }
+    }
+  }
+  li:hover {
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px #00000026;
   }
 }
 </style>

@@ -7,6 +7,7 @@ import "./assets/css/base.scss";
 import ElementPlus from "element-plus";
 import "element-plus/theme-chalk/index.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+import "./mock/index";
 
 // pinia
 import { createPinia } from "pinia";

@@ -1,4 +1,5 @@
 import request from "./request";
+import axios from "axios";
 // 注册
 export const registerApi = (params) => request.post("/register", params);
 // 登录
@@ -12,3 +13,6 @@ export const updateArticle = (params) => request.put("/article/update", params);
 // 删除文章列表
 export const deleteArticleApi = (params) =>
   request.post("/article/remove", params);
+
+// 获取tree列表
+export const getCateTreeData = axios.get("/mock/cate/tree");
